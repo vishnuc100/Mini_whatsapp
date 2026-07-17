@@ -27,8 +27,13 @@ async function main() {
 
 //Index route
 app.get("/chats", async (req, res) => {
+  try {
     let chats = await Chat.find();
     res.render("index", { chats });
+  } catch (err) {
+    console.error(err);
+    res.send(err.message);
+  }
 });
 
 //New route
