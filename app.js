@@ -79,10 +79,6 @@ app.delete('/chats/:id', async (req,res) => {
   res.redirect("/chats");
 });
 
-app.get("/",(req,res)=>{
-    res.send("helo world");
-    console.log("Working successfully");
-})
 
 app.listen(port,()=>{
     console.log(`Listening on ${port}`);
