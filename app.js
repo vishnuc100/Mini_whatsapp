@@ -1,6 +1,7 @@
+require("dotenv").config();
 const express = require('express');
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 const mongoose = require('mongoose');
 const path = require('path');
 const Chat = require('./models/chat');
@@ -21,7 +22,7 @@ main().then(()=>{
 })
 
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
+    await mongoose.connect(process.env.MONGO_URL);
 }
 
 //Index route
